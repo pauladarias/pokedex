@@ -15,7 +15,7 @@ async function getAllPokemon() {
   let response = await fetch("pokemon.json");
   let data = await response.json();
   console.log(data[0]);
-  return data;
+  return data.slice(100);
 }
 
 function getAllPokemonHtml(aPokemon) {
@@ -29,6 +29,10 @@ function getAllPokemonHtml(aPokemon) {
   <div class="a-pokemon-stat">Attack: ${aPokemon.base.Attack}</div>
   <div class="a-pokemon-stat">Defense: ${aPokemon.base.Defense}</div>
   <div class="a-pokemon-stat">Speed: ${aPokemon.base.Speed}</div>
+
+  <div class="a-pokemon-alt-name">${aPokemon.name.japanese}</div>
+  <div class="a-pokemon-alt-name">${aPokemon.name.chinese}</div>
+  <div class="a-pokemon-alt-name">${aPokemon.name.french}</div>
 </div>`;
 }
 
